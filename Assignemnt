@@ -1,0 +1,88 @@
+Opgaver:
+
+Robert Pedersen
+
+-- Opgave 1
+-- SELECT influencerName
+-- FROM dbo.Influencers
+
+-- Opgave 2
+--SELECT mediaPlatform 
+-- FROM dbo.socialMediaPlatform
+
+-- Opgave 3
+-- SELECT influencerName
+-- FROM dbo.Influencers
+-- WHERE age > 25
+
+-- Opgave 4
+-- SELECT brandName
+-- FROM dbo.Brands
+-- WHERE category = 'Beauty';
+
+
+-- Opgave 5
+-- SELECT COUNT(InstagramFollowers)
+-- FROM dbo.Influencers
+-- WHERE InstagramFollowers > 50000;
+
+-- Opgave 6
+-- SELECT mediaPlatform
+-- FROM dbo.socialMediaPlatform
+-- WHERE averageUser = (SELECT MIN(averageUser) FROM dbo.socialMediaPlatform);
+
+-- Opgave 7
+-- SELECT influencerName
+-- FROM Collaborations
+-- JOIN Influencers ON Collaborations.influencerID = Influencers.InfluencerID
+-- WHERE Collaborations.brandID = 1;
+
+-- Opgave 8
+-- SELECT mediaPlatform
+-- FROM socialMediaPlatform
+-- WHERE totalUsers > 1000000
+
+-- Opgave 9
+-- SELECT influencerName
+-- FROM Influencers
+-- WHERE age BETWEEN 25 AND 30
+
+-- Opgave 10
+-- SELECT DISTINCT brandName
+-- FROM Brands
+-- LEFT JOIN Collaborations ON Collaborations.brandID = Brands.brandID
+-- and Collaborations.platformID = 4
+-- WHERE collaborations.brandID IS NULL;
+
+-- Opgave 11
+-- SELECT brandName
+-- FROM Brands
+-- LEFT JOIN Collaborations ON Collaborations.brandID = Brands.brandID
+-- WHERE Collaborations.duration = (SELECT MAX(Collaborations.duration) FROM Collaborations)
+
+-- Opgave 12
+-- SELECT Influencers.influencerName, COUNT(Collaborations.collaborationsID) AS Collaborations
+-- FROM Influencers
+-- LEFT JOIN Collaborations ON Collaborations.influencerID = Influencers.InfluencerID
+-- GROUP BY Influencers.influencerName;
+
+-- Opgave 13
+-- SELECT DISTINCT brandName
+-- FROM Collaborations
+-- JOIN Brands ON  Brands.brandID = Collaborations.brandID
+-- JOIN Influencers ON Collaborations.influencerID = Influencers.InfluencerID
+-- WHERE InstagramFollowers > 40000;
+
+-- Opgave 14
+--SELECT DISTINCT socialMediaPlatform.mediaPlatform, AVG(Influencers.age)
+-- FROM Collaborations
+-- JOIN socialMediaPlatform ON collaborations.platformID = socialMediaPlatform.platformID
+-- JOIN Influencers ON Collaborations.influencerID = Influencers.InfluencerID
+-- GROUP BY socialMediaPlatform.mediaPlatform
+
+-- Opgave 15
+-- SELECT Influencers.influencerName
+-- FROM Influencers
+-- LEFT JOIN Collaborations ON Collaborations.influencerID = Influencers.InfluencerID
+-- GROUP BY Influencers.influencerName
+-- HAVING COUNT(Collaborations.collaborationsID) > 1;
